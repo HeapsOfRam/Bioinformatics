@@ -1,0 +1,2 @@
+> Test Input File 1a
+GCCCATATACCCG

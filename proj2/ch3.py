@@ -115,8 +115,8 @@ def match_percentage(str1, str2):
 filename1 = 'input_ch3_1a.txt'
 filename2 = 'input_ch3_1b.txt'
 
-file_lista = ['input_ch3_1a.txt', 'input_ch3_2a.txt']
-file_listb = ['input_ch3_1b.txt', 'input_ch3_2b.txt']
+file_lista = ['input_ch3_1a.txt', 'input_ch3_2a.txt', 'test1_a.txt', 'test2_a.txt']
+file_listb = ['input_ch3_1b.txt', 'input_ch3_2b.txt', 'test1_b.txt', 'test2_b.txt']
 
 for x in range(len(file_lista)):
 	print ""
