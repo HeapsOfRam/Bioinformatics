@@ -1,0 +1,6 @@
+> Sample Input File 1a
+AACCTATAGCT
+
+
+
+

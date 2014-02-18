@@ -1,0 +1,4 @@
+> Sample Input File 1b
+GCGATATA
+
+

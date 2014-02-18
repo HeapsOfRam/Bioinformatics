@@ -1,0 +1,2 @@
+> Sample Input File 2b
+ACCACTACTTCTACTCGGAACTCGT

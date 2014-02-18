@@ -1,0 +1,4 @@
+files = ['input_ch2_ex3_1a.txt', 'input_ch2_ex3_1b.txt', 'input_ch2_ex3_2a.txt',
+					'input_ch2_ex3_2b.txt','input_ch2_ex3_3a.txt', 'input_ch2_ex3_3b.txt', 
+					'input_ch2_ex3_4a.txt', 'input_ch2_ex3_4b.txt', 'hbbgene_dna.txt',
+					'sicklecell_dna_modified.txt', 'hbbgene_protein.txt', 'sicklecell_protein.txt']
