@@ -67,10 +67,10 @@ def traceback_gene(final_matrix):
 	x_over = False
 	y_over = False
 	while non_zero:
-		if x > len(seq1):
+		if x >= len(seq1):
 			x = len(seq1) + 0
 			x_over = True
-		if y > len(seq2):
+		if y >= len(seq2):
 			y = len(seq2) + 0
 			y_over = True
 		x_spot = len(seq1) - x
