@@ -137,15 +137,19 @@ for x in range(len(file_lista)):
 
 	result_list = traceback_gene(datmatrix)
 
-	num_matches = find_matches(result_list[0], result_list[1])
-	num_mismatches = find_mismatches(result_list[0], result_list[1])
-	num_gaps = find_gaps(result_list[0], result_list[1])
+	alignment1 = result_list[0]
+	alignment2 = result_list[1]
+	alignment_path = result_list[2]
 
-	print "Path:", result_list[2]
+	num_matches = find_matches(alignment1, alignment2)
+	num_mismatches = find_mismatches(alignment1, alignment2)
+	num_gaps = find_gaps(alignment1, alignment2)
+
+	print "Path:", alignment_path
 	print "Matches:", num_matches, "Mismatches:", num_mismatches, "Gaps:", num_gaps
-	print "Match percent:", match_percentage(result_list[0], result_list[1])
+	print "Match percent:", match_percentage(alignment1, alignment2)
 	print "Aligned Sequences:"
-	print result_list[0]
-	print result_list[1]
+	print alignment1
+	print alignment2
 
 	matrix.gen_html_table(datmatrix, filename)
