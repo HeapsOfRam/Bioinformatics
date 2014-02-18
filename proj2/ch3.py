@@ -108,6 +108,10 @@ def find_gaps(str1, str2):
 			gaps += 1
 	return gaps
 
+def match_percentage(str1, str2):
+	n_match = find_matches(str1, str2)
+	return float(n_match) * 100 / float(len(str1))
+
 filename1 = 'input_ch3_1a.txt'
 filename2 = 'input_ch3_1b.txt'
 
@@ -115,6 +119,8 @@ file_lista = ['input_ch3_1a.txt', 'input_ch3_2a.txt']
 file_listb = ['input_ch3_1b.txt', 'input_ch3_2b.txt']
 
 for x in range(len(file_lista)):
+	print ""
+
 	filename = "table" + str(x + 1) + '.html'
 	filename1 = file_lista[x]
 	filename2 = file_listb[x]
@@ -135,9 +141,11 @@ for x in range(len(file_lista)):
 	num_mismatches = find_mismatches(result_list[0], result_list[1])
 	num_gaps = find_gaps(result_list[0], result_list[1])
 
-	print result_list[0]
-	print result_list[1]
 	print "Path:", result_list[2]
 	print "Matches:", num_matches, "Mismatches:", num_mismatches, "Gaps:", num_gaps
+	print "Match percent:", match_percentage(result_list[0], result_list[1])
+	print "Aligned Sequences:"
+	print result_list[0]
+	print result_list[1]
 
 	matrix.gen_html_table(datmatrix, filename)
