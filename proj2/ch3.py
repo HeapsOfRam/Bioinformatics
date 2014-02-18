@@ -37,6 +37,27 @@ def check_diag(initialized_matrix, n, m):
 def gen_list(num):
 	return [None for c in range(num)]
 
+# def traceback_gene(final_matrix):
+# 	list_a = []
+# 	list_b = []
+# 	x_over = False
+# 	y_over = False
+# 	for y in range(0, len(final_matrix)):
+# 		for x in range(0, len(final_matrix[y])):
+# 			x_spot = len(seq1) - x
+# 			y_spot = len(seq2) - y
+# 			val = final_matrix[x_spot][y_spot]
+# 			diag = final_matrix[x_spot - 1][y_spot - 1]
+# 			horiz = final_matrix[x_spot - 1][y_spot]
+# 			vert = fill_matrix[x_spot][y_spot - 1]
+# 			if val == diag + mismatch_penalty or val == diag + match_score:
+# 				list_a.append(seq1[x_spot])
+# 				list_b.append(seq2[y_spot])
+# 			else:
+# 				if val == horiz + gap_penalty:
+# 					list_a.append(seq1[x_spot])
+
+
 def traceback_gene(final_matrix):
 	x = 1
 	y = 1
