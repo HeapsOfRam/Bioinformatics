@@ -11,7 +11,7 @@ output_base = "fo_out_"
 
 file_list = []
 
-for i in range(1, 3):
+for i in range(1, 6):
 	file_list.append(file_base + str(i) + file_ext)
 	
 num = 1

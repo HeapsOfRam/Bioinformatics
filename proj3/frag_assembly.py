@@ -28,7 +28,7 @@ output_base = 'assembly_out_'
 
 file_list = []
 
-for i in range(1, 3):
+for i in range(1, 5):
 	file_list.append(file_base + str(i) + file_ext)
 
 num = 1
