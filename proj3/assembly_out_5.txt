@@ -1,0 +1,2 @@
+> Dummy Assembly For Question 7
+['GGATAGATATAT', 'ATATGCACTTC', 'GGATAGATATATATAT', 'ATATATATAT']
