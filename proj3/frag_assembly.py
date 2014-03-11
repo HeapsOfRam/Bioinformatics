@@ -18,29 +18,47 @@ def coverageMet(coverage, fold):
 # fMax = raw_input("enter maximum fragment size: ")
 # fold = raw_input("input coverage fold expected: ")
 
-seq = read_fasta.read_fasta_v1('fa_input_1.txt')
 fMin = 5
 fMax = 10
 fold = 5
 
-coverage = []
+file_base = 'fa_input_'
+file_ext = '.txt'
+output_base = 'assembly_out_'
 
-for i in range(0, len(seq) - 1):
-	coverage.append(0)
+file_list = []
 
-numFrags = 0
-frags = []
+for i in range(1, 3):
+	file_list.append(file_base + str(i) + file_ext)
 
-while not(coverageMet(coverage, fold)):
-	randLength = random.randint(int(fMin), int(fMax) + 1)
-	randStart  = random.randint(0, len(seq) - randLength)
-	frags.append(seq[randStart:randStart + randLength])
-	numFrags += 1
+num = 1
 
-	# update coverage
-	for i in range(randStart, randStart + (randLength - 1)):
-		coverage[i] += 1
+for fname in file_list:
+	seq = read_fasta.read_fasta_v1(fname)
 
-print frags
+	coverage = []
 
-file_output.file_write("assembly_out.txt", frags)
+	for i in range(0, len(seq) - 1):
+		coverage.append(0)
+
+	numFrags = 0
+	frags = []
+
+	while not(coverageMet(coverage, fold)):
+		randLength = random.randint(int(fMin), int(fMax) + 1)
+		randStart  = random.randint(0, len(seq) - randLength)
+		frags.append(seq[randStart:randStart + randLength])
+		numFrags += 1
+
+		# update coverage
+		for i in range(randStart, randStart + (randLength - 1)):
+			coverage[i] += 1
+
+	print frags
+	print numFrags
+
+	for i in range(len(coverage) - 1):
+		print coverage[i]
+
+	file_output.file_write(output_base + str(num) + file_ext, frags)
+	num += 1
