@@ -1,0 +1,29 @@
+read in list of fragments
+
+while len(fragments) > 1
+	initialize empty matrix of size (len(fragments) by len(fragments))
+
+	for each row:
+		for each column:
+			matrix[row][column] = compare(fragments[row], fragments[column])
+
+	row = row location of find_max
+	column = column locatio of find)max
+	append combine(fragments[row], fragments[column], matrix[row][column]) to fragments
+
+	set values in row to -1
+	set values in column to -1
+
+	remove old fragments[row] and fragments[col], since they are merged now
+
+function compare(string 1, string 2, x = 0)
+	determine overlap
+	return overlap
+
+function combine(string 1, string 2, overlap)
+	string 1 += string 2[overlap - 1 : ]
+	return string 1
+
+function find_max
+	determind maximum value in matrix
+	
