@@ -1,3 +1,4 @@
+# GROUP: Ryan March, Vince Eaton, Anita Uche
 # GOAL: To determine the largest overlap between pairs of fragments
 # INPUT: Set of fragments
 # OUTPUT: The fragments, the resulting contig, and length of the overlapping region of each pair of fragments in the input file

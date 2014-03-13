@@ -38,42 +38,48 @@ def find_max(mat):
 file_base = "assembly_out_"
 file_ext = ".txt"
 
-frags_list = read_fasta.read_fasta_v1("assembly_out_1.txt")
-fragments = []
+file_list = []
 
-numFrags = 0
-fragments.append("")
-for i in range(len(frags_list) - 1):
-	if frags_list[i] == ',':
-		numFrags += 1
-		fragments.append("")
-	if frags_list[i] != ',' and frags_list[i] != '\'' and frags_list[i] != '[' and frags_list[i] != ']' and frags_list[i] != ' ':
-		fragments[numFrags] += frags_list[i]
+for i in range(1, 6):
+	file_list.append(file_base + str(i) + file_ext)
 
-while len(fragments) > 1:
-	dat_matrix = matrix.gen_matrix(len(fragments), len(fragments))
+for fname in file_list:
+	frags_list = read_fasta.read_fasta_v1(fname)
+	fragments = []
 
-	for row in range(len(dat_matrix)):
-		for col in range(len(dat_matrix[row])):
-			if row == col:
-				dat_matrix[row][col] = -1
-			else:
-				dat_matrix[row][col] = compare(fragments[row], fragments[col])
+	numFrags = 0
+	fragments.append("")
+	for i in range(len(frags_list) - 1):
+		if frags_list[i] == ',':
+			numFrags += 1
+			fragments.append("")
+		if frags_list[i] != ',' and frags_list[i] != '\'' and frags_list[i] != '[' and frags_list[i] != ']' and frags_list[i] != ' ':
+			fragments[numFrags] += frags_list[i]
 
-	coords = find_max(dat_matrix)
-	row = coords[0]
-	col = coords[1]
+	while len(fragments) > 1:
+		dat_matrix = matrix.gen_matrix(len(fragments), len(fragments))
 
-	fragments.append(combine(fragments[row], fragments[col], dat_matrix[row][col]))
+		for row in range(len(dat_matrix)):
+			for col in range(len(dat_matrix[row])):
+				if row == col:
+					dat_matrix[row][col] = -1
+				else:
+					dat_matrix[row][col] = compare(fragments[row], fragments[col])
 
-	for c in range(len(dat_matrix[row])):
-		dat_matrix[row][c] = -1
-	for r in range(len(dat_matrix)):
-		dat_matrix[r][col] = -1
+		coords = find_max(dat_matrix)
+		row = coords[0]
+		col = coords[1]
 
-	remove_row = fragments[row]
-	remove_col = fragments[col]
-	fragments.remove(remove_row)
-	fragments.remove(remove_col)
+		fragments.append(combine(fragments[row], fragments[col], dat_matrix[row][col]))
 
-print fragments
+		for c in range(len(dat_matrix[row])):
+			dat_matrix[row][c] = -1
+		for r in range(len(dat_matrix)):
+			dat_matrix[r][col] = -1
+
+		remove_row = fragments[row]
+		remove_col = fragments[col]
+		fragments.remove(remove_row)
+		fragments.remove(remove_col)
+
+	print fragments

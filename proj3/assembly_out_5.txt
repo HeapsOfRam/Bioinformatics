@@ -1,2 +1,2 @@
-> Dummy Assembly For Question 7
+> Dummy Assembly For Question 7 GROUP: Ryan March, Vince Eat, Anita Uche
 ['GGATAGATATAT', 'ATATGCACTTC', 'GGATAGATATATATAT', 'ATATATATAT']

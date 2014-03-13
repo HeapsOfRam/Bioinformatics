@@ -1,3 +1,4 @@
+# GROUP: Ryan March, Vince Eaton, Anita Uche
 # GOAL: To generate random fragments from an input sequence
 # INPUT: A single nucleotide sequence, user-defined minimum fragment size, maximum fragment size and coverage fold
 # OUTPUT: A set of fragments

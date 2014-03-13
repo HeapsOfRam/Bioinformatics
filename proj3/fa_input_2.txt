@@ -1,2 +1,2 @@
-> Input 2
+> Input 2 GROUP: Ryan March, Vince Eaton, Anita Uche
 GGATAGATATATATATATATCGACTTC
