@@ -21,12 +21,69 @@ def fill_matrix(in_matrix, seq1, seq2):
 		for y in range(1, len(seq2)):
 			horiz = in_matrix[x][y - 1] + gap_score
 			vert  = in_matrix[x - 1][y] + gap_score
-			comp  = sub_matrix[amino_hash[seq1[x]]][amino_hash[seq2[y]]]
+			comp  = in_matrix[x - 1][y - 1] + sub_matrix[amino_hash[seq1[x]]][amino_hash[seq2[y]]]
 
 			in_matrix[x][y] = max(comp, horiz, vert)
 
-file_list_a = ['input_1a.txt']
-file_list_b = ['input_1b.txt']
+def traceback_gene(final_matrix):
+	align_a = ""
+	align_b = ""
+	path = "" 
+	tot_score = 0
+
+	i = len(seq1) - 1
+	j = len(seq2) - 1
+
+	while i > 0 and j > 0:
+		score = final_matrix[i][j]
+		diag = final_matrix[i - 1][j - 1]
+		horiz = final_matrix[i][j - 1]
+		vert = final_matrix[i - 1][j]
+
+		# print sub_matrix[amino_hash[seq1[i]]][amino_hash[seq2[j]]], i, j
+		# print final_matrix[i][j]
+		# print final_matrix[i - 1][j - 1]
+		if score == diag + sub_matrix[amino_hash[seq1[i]]][amino_hash[seq2[j]]]:
+			align_a = seq1[i] + align_a
+			align_b = seq2[j] + align_b
+			path = "D" + path
+			i -= 1
+			j -= 1
+		elif score == vert + gap_score:
+			align_a = seq1[i] + align_a
+			align_b = "-" + align_b
+			path = "V" + path	
+			i -= 1
+		elif score == horiz + gap_score:
+			align_a = "-" + align_a
+			align_b = seq2[j] + align_b
+			path = "H" + path
+			j -= 1
+		# else:
+		# 	print "You done did it"
+
+		tot_score += final_matrix[i][j]
+
+	while i > 0:
+		align_a = seq1[i] + align_a
+		align_b = align_b + "-"
+		path = "V" + path
+		i -= 1
+		tot_score += final_matrix[i][j]
+	while j > 0:
+		align_a = align_a + "-"
+		align_b = seq2[j] + align_b
+		path = "H" + path
+		j -= 1
+		tot_score += final_matrix[i][j]
+
+	align_a = seq1[0] + align_a
+	align_b = seq2[0] + align_b
+
+	return [align_a, align_b, path, tot_score]
+
+file_list_a = ['input_1a.txt', 'input_2a.txt', 'input_3a.txt']
+file_list_b = ['input_1b.txt', 'input_2b.txt', 'input_3b.txt']
 
 gap_score = -1
 
@@ -46,4 +103,15 @@ for x in range(len(file_list_a)):
 	init_matrix(score_matrix)
 
 	fill_matrix(score_matrix, seq1, seq2)
-	print score_matrix
+
+	result_list = traceback_gene(score_matrix)
+
+	alignment1 = result_list[0]
+	alignment2 = result_list[1]
+	alignment_path = result_list[2]
+	final_score = result_list[3]
+
+	print alignment1
+	print alignment2
+	print "PATH:", alignment_path
+	print "SCORE:", final_score
