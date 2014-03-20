@@ -111,6 +111,8 @@ for x in range(len(file_list_a)):
 	alignment_path = result_list[2]
 	final_score = result_list[3]
 
+	print score_matrix
+
 	print alignment1
 	print alignment2
 	print "PATH:", alignment_path

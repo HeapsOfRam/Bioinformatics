@@ -49,10 +49,26 @@ aligned_pos = total_aligned_positions(seq1, seq2)
 amino_list = []
 
 for x in seq1:
-	if x not in amino_list:
+	if x not in amino_list and x != '-':
 		amino_list.append(x)
 
 for x in seq2:
-	if x not in amino_list:
+	if x not in amino_list and x != '-':
 		amino_list.append(x)
 
+sub_matrix = matrix.gen_matrix(len(amino_list), len(amino_list))
+
+for x in range(len(amino_list)):
+	for y in range(len(amino_list)):
+		q = determine_q(seq1, seq2, amino_list[x], amino_list[y])
+		p1 = determine_p(seq1, seq2, amino_list[x])
+		p2 = determine_p(seq1, seq2, amino_list[y])
+		e = determine_e(p1, p2)
+		cha = determine_chance(q, e)
+
+		val = determine_log(cha)
+
+		sub_matrix[x][y] = int(val)
+
+print amino_list
+print sub_matrix
