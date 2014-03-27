@@ -6,7 +6,7 @@ out_base  = 'pos_poly_'
 out_ext   = '.txt'
 iteration = '2'
 
-se_file  = se_base + iteration + se_ext
+se_file  = se_base  + iteration + se_ext
 chr_file = chr_base + iteration + chr_ext
 out_file = out_base + iteration + out_ext
 

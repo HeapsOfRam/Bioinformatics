@@ -19,7 +19,6 @@ for target in tf:
 	for pos in pf:
 		pos = pos.split()
 		if pos[0] >= target[2] and pos[0] <= target[3]:
-			print pos[0], target[2], target[3]
 			file_out.write(target[0] + '\t' + pos[0] + '\n')
 
 tf.close()

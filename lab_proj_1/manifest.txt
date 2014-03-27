@@ -1,0 +1,10 @@
+HwVarChr?.vcf -> parse_test.py -> var_chr_?.txt
+ceWS225.fa -> chrom_split.py -> chrom_?.txt
+var_chr_?.txt -> split_chr.py -> split_chr_?.txt
+
+targ_genes.txt -> split_target.py -> tar_chrom_?.txt
+
+tar_chrom_?.txt -> make_start_end.py -> start_end_?.txt
+start_end.txt, split_chr_?.txt -> pos_find.py -> pos_poly_?.txt
+
+tar_chrom_?.txt, pos_poly_?.txt -> det_name.py -> rflp_names.txt
