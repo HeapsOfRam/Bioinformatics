@@ -4,11 +4,13 @@ chr_base  = 'split_chr_'
 chr_ext   = '.txt'
 out_base  = 'pos_poly_'
 out_ext   = '.txt'
-iteration = '2'
+iteration = '3'
 
 se_file  = se_base  + iteration + se_ext
 chr_file = chr_base + iteration + chr_ext
 out_file = out_base + iteration + out_ext
+
+offset = 100000
 
 start_end = []
 fstart = open(se_file, 'r')
@@ -25,8 +27,11 @@ for line in fo:
 	num = int(line[1])
 	
 	for se in start_end:
-		if num >= int(se[0]) and num <= int(se[1]):
-			file_out.write(str(num) + '\t' + se[0] + '\t' + se[1] + '\n')
+		low_bound = int(se[0]) - offset
+		high_bound = int(se[1]) + offset
+
+		if num >= low_bound and num <= high_bound:
+			file_out.write(str(num) + '\t' + str(low_bound) + '\t' + str(high_bound) + '\n')
 
 fo.close()
 file_out.close()

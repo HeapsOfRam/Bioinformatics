@@ -1,10 +1,16 @@
 HwVarChr?.vcf -> parse_test.py -> var_chr_?.txt
 ceWS225.fa -> chrom_split.py -> chrom_?.txt
 var_chr_?.txt -> split_chr.py -> split_chr_?.txt
+split_chr_?.txt -> wet_lab.py -> poly_chr_?.txt
 
 targ_genes.txt -> split_target.py -> tar_chrom_?.txt
 
 tar_chrom_?.txt -> make_start_end.py -> start_end_?.txt
 start_end.txt, split_chr_?.txt -> pos_find.py -> pos_poly_?.txt
 
-tar_chrom_?.txt, pos_poly_?.txt -> det_name.py -> rflp_names.txt
+tar_chrom_?.txt, pos_poly_?.txt -> det_name.py -> rflp_names_?.txt
+poly_chr_?.txt, rflp_names_?.txt -> cut_gene.py -> tiny_chr_?.txt
+chrom_?.txt -> chrom_cat.py -> chrom_full_?.txt
+
+MAKE 100,000 ON EITHER SIDE
+FINISH GENE FIND ALGORITHM
