@@ -1,3 +1,5 @@
+# GROUP: Ryan March, Vincent Eaton, Anita Uche
+
 import init_dict
 
 MAX_DIST = 99999
@@ -18,8 +20,9 @@ while(choice != 1 and choice != 2):
 
 print '\n'
 
-for iteration in range(1, 3):
-	print "Input " + str(iteration) + ":" 
+
+for iteration in range(1, 4):
+	print "Output " + str(iteration) + ":" 
 	file_in = file_in_base + str(iteration) + file_in_ext
 
 	cluster_hash = init_dict.init_dict(file_in)
@@ -54,6 +57,8 @@ for iteration in range(1, 3):
 			del cluster_hash[key][min_in_key]
 
 		cluster_hash[min_key + min_in_key] = hash_element
+
+		print "Merged " + min_key + " and " + min_in_key
 
 		if len(min_key) == 1 and len(min_in_key) == 1:
 			newick += "( " + min_key + " , " + min_in_key + " )"
