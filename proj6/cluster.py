@@ -30,15 +30,22 @@ for iteration in range(1, 4):
 
 	while len(cluster_hash) > 1:
 		minimum = MAX_DIST
+		maximum = 0
 
 		for key in cluster_hash:
 			for in_key in cluster_hash[key]:
 				if in_key != key:
 					val = cluster_hash[key][in_key]
-					if val < minimum:
-						minimum = val
-						min_key = key
-						min_in_key = in_key
+					if choice == 1:
+						if val < minimum:
+							minimum = val
+							min_key = key
+							min_in_key = in_key
+					if choice == 2:
+						if val > maximum:
+							maximum = val
+							min_key = key
+							min_in_key = in_key
 
 		hash_element = {}
 
