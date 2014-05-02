@@ -21,7 +21,7 @@ while(choice != 1 and choice != 2):
 print '\n'
 
 
-for iteration in range(1, 4):
+for iteration in range(1, 5):
 	print "Output " + str(iteration) + ":" 
 	file_in = file_in_base + str(iteration) + file_in_ext
 
